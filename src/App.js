@@ -1,20 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Header from "./Header.js";
+import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      term: "",
+      items: []
+    };
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    return(
+      <div>
+        <Header/>
+
+        <main className="main">
+          <section className="todo-list">
+            <header className="boxes-header">
+              <h2>TODO ITEMS</h2>
+              <button className="add-btn">ADD</button>
+            </header>
+            <ul>
+              <li className="item-list">65464</li>
+              <li className="item-list">65464</li>
+            </ul>
+          </section>
+
+          <section className="done-list">
+            <header className="boxes-header">
+              <h2>DONE ITEMS</h2>
+            </header>
+            <ul>
+              <li className="item-list">65464</li>
+              <li className="item-list">65464</li>
+            </ul>
+          </section>
+        </main>
+
       </div>
-    );
+      );
   }
 }
 

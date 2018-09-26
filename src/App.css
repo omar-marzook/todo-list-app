@@ -1,28 +1,125 @@
-.App {
-  text-align: center;
+* {
+  -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.header {
+    height: 100px;
+    padding: 10px 80px;
+    background-color: #8bc34a;
+    color: #fff;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.title {
+    display: inline-block;
 }
 
-.App-title {
-  font-size: 1.5em;
+.todo-logo {
+    height: 80px;
+    width: auto;
+    vertical-align: middle;
 }
 
-.App-intro {
-  font-size: large;
+.title-text {
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: middle;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.title-text h1 {
+    font-weight: 500;
+}
+
+.title-text h2 {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.avatar {
+    display: inline-block;
+    float: right;
+}
+
+.avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url(./avatar.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.avatar-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.avatar-info h3 {
+    font-weight: 500;
+    margin: 5px 20px;
+}
+
+/* Main App */
+.main {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.todo-list {
+    width: 450px;
+    height: 500px;
+    background-color: #8bc34a;
+    margin: 40px 20px;
+}
+
+.done-list {
+    width: 450px;
+    height: 500px;
+    background-color: #8bc34a;
+    margin: 40px 20px;
+}
+
+.boxes-header {
+    border-bottom: 1px solid #fff;
+    padding: 10px 20px;
+}
+
+.boxes-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.add-btn {
+    color: #8bc34a;
+    background-color: #fff;
+    display: inline-block;
+    float: right;
+    border: 0;
+    padding: 3px 10px;
+}
+
+.main ul {
+    list-style: none;
+}
+
+.item-list {
+    color: #000;
+    background-color: #fff;
+    margin: 5px 10px;
+    padding: 10px;
+}
+
+.done-list .item-list {
+    color: #c1c1c1;
+    font-style: italic;
+    text-decoration: line-through;
 }
