@@ -25,7 +25,8 @@ class App extends Component {
     this.setState({ visibility: "visible" });
   };
 
-  hideInput = () => {
+  hideInput = e => {
+    e.preventDefault();
     this.setState({ visibility: "hidden" });
   };
 
