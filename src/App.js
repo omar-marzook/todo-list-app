@@ -37,10 +37,32 @@ class App extends Component {
   addTodo = e => {
     e.preventDefault();
     let task = this.state.value;
+    if (task.length === 0) {
+      return;
+    }
     this.setState({
       todoList: [...this.state.todoList, task],
       value: ""
     });
+  };
+
+  endTask = index => {
+    const todoList = [...this.state.todoList];
+    const doneList = [...this.state.doneList];
+    doneList.push(todoList[index]);
+    todoList.splice(index, 1);
+    this.setState({
+      todoList: todoList,
+      doneList: doneList
+    });
+  };
+
+  recoverTask = index => {
+    const todoList = [...this.state.todoList];
+    const doneList = [...this.state.doneList];
+    todoList.push(doneList[index]);
+    doneList.splice(index, 1);
+    this.setState({ todoList: todoList, doneList: doneList });
   };
 
   render() {
@@ -69,8 +91,14 @@ class App extends Component {
               </button>
             </header>
             <ul className="todo-items">
-              {this.state.todoList.map(todo => (
-                <li className="item-list" key={Date.now() * Math.random()}>
+              {this.state.todoList.map((todo, index) => (
+                <li
+                  className="item-list"
+                  key={Date.now() * Math.random()}
+                  onDoubleClick={() => {
+                    this.endTask(index);
+                  }}
+                >
                   {todo}
                 </li>
               ))}
@@ -82,8 +110,14 @@ class App extends Component {
               <h2>DONE ITEMS</h2>
             </header>
             <ul className="done-items">
-              {this.state.doneList.map(done => (
-                <li className="item-list" key={Date.now() * Math.random()}>
+              {this.state.doneList.map((done, index) => (
+                <li
+                  className="item-list"
+                  key={Date.now() * Math.random()}
+                  onDoubleClick={() => {
+                    this.recoverTask(index);
+                  }}
+                >
                   {done}
                 </li>
               ))}
