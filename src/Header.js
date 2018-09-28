@@ -4,7 +4,6 @@ import logo from "./todo-white.svg";
 class Header extends Component {
   render() {
     return (
-      <div>
         <header className="header">
           <div className="title">
             <img className="todo-logo" src={logo} alt="todo list logo" />
@@ -21,7 +20,6 @@ class Header extends Component {
             </div>
           </div>
         </header>
-      </div>
     );
   }
 }
