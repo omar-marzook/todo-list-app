@@ -65,6 +65,18 @@ class App extends Component {
     this.setState({ todoList: todoList, doneList: doneList });
   };
 
+  removeTodo = index => {
+    const todoList = [...this.state.todoList];
+    todoList.splice(index, 1);
+    this.setState({ todoList: todoList });
+  }
+
+  removeDone = index => {
+    const doneList = [...this.state.doneList];
+    doneList.splice(index, 1);
+    this.setState({  doneList: doneList });
+  }
+
   render() {
     return (
       <div>
@@ -95,11 +107,15 @@ class App extends Component {
                 <li
                   className="item-list"
                   key={Date.now() * Math.random()}
-                  onDoubleClick={() => {
+                >
+                <p className="item-text"
+                  onClick={() => {
                     this.endTask(index);
                   }}
                 >
-                  {todo}
+                  {todo} 
+                </p>
+                  <button className="del-task" onClick={() => {this.removeTodo(index)}}> X </button>
                 </li>
               ))}
             </ul>
@@ -114,11 +130,15 @@ class App extends Component {
                 <li
                   className="item-list"
                   key={Date.now() * Math.random()}
-                  onDoubleClick={() => {
+                >
+                <p className="item-text"
+                  onClick={() => {
                     this.recoverTask(index);
                   }}
                 >
-                  {done}
+                  {done} 
+                </p>
+                  <button className="del-task" onClick={() => {this.removeDone(index)}}> X </button>
                 </li>
               ))}
             </ul>
