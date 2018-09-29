@@ -69,13 +69,13 @@ class App extends Component {
     const todoList = [...this.state.todoList];
     todoList.splice(index, 1);
     this.setState({ todoList: todoList });
-  }
+  };
 
   removeDone = index => {
     const doneList = [...this.state.doneList];
     doneList.splice(index, 1);
-    this.setState({  doneList: doneList });
-  }
+    this.setState({ doneList: doneList });
+  };
 
   render() {
     return (
@@ -91,10 +91,14 @@ class App extends Component {
 
         <main className="main">
           <section className="todo-list">
-            <header className="boxes-header">
-              <h2>TODO ITEMS</h2>
+            <header className="boxes-header" >
+              <h2 tabIndex="1">TODO ITEMS</h2>
               <button
                 className="add-btn"
+                tabIndex="2"
+                aria-label="add new task"
+                aria-haspopup="true"
+                aria-expanded="false"
                 onClick={() => {
                   this.showInput();
                 }}
@@ -104,41 +108,65 @@ class App extends Component {
             </header>
             <ul className="todo-items">
               {this.state.todoList.map((todo, index) => (
-                <li
-                  className="item-list"
-                  key={Date.now() * Math.random()}
-                >
-                <p className="item-text"
-                  onClick={() => {
-                    this.endTask(index);
-                  }}
-                >
-                  {todo} 
-                </p>
-                  <button className="del-task" onClick={() => {this.removeTodo(index)}}> X </button>
+                <li className="item-list" key={Date.now() * Math.random()}>
+                  <a
+                    className="item-text"
+                    tabIndex="3"
+                    aria-label="Select to consider the task done"
+                    onClick={() => {
+                      this.endTask(index);
+                    }}
+                    onKeyPress={() => {
+                      this.endTask(index);
+                    }}
+                  >
+                    {todo}
+                  </a>
+                  <button
+                    className="del-task"
+                    tabIndex="3"
+                    aria-label="delete task"
+                    onClick={() => {
+                      this.removeTodo(index);
+                    }}
+                  >
+                    X
+                  </button>
                 </li>
               ))}
             </ul>
           </section>
 
           <section className="done-list">
-            <header className="boxes-header">
-              <h2>DONE ITEMS</h2>
+            <header className="boxes-header" >
+              <h2 tabIndex="1">DONE ITEMS</h2>
             </header>
             <ul className="done-items">
               {this.state.doneList.map((done, index) => (
-                <li
-                  className="item-list"
-                  key={Date.now() * Math.random()}
-                >
-                <p className="item-text"
-                  onClick={() => {
-                    this.recoverTask(index);
-                  }}
-                >
-                  {done} 
-                </p>
-                  <button className="del-task" onClick={() => {this.removeDone(index)}}> X </button>
+                <li className="item-list" key={Date.now() * Math.random()}>
+                  <a
+                    className="item-text"
+                    tabIndex="3"
+                    aria-label="Select to consider the task as a task"
+                    onClick={() => {
+                      this.recoverTask(index);
+                    }}
+                    onKeyPress={() => {
+                      this.recoverTask(index);
+                    }}
+                  >
+                    {done}
+                  </a>
+                  <button
+                    className="del-task"
+                    tabIndex="3"
+                    aria-label="delete finished task"
+                    onClick={() => {
+                      this.removeDone(index);
+                    }}
+                  >
+                    X
+                  </button>
                 </li>
               ))}
             </ul>
