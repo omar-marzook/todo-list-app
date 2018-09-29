@@ -24,22 +24,27 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  //  Show Input Tasks Dialog
   showInput = () => {
     this.setState({ visibility: "visible" });
   };
 
+  //  Hide Input Tasks Dialog
   hideInput = e => {
     e.preventDefault();
     this.setState({ visibility: "hidden" });
   };
 
+  // Change `value` inside the state on input value change
   handleChange = e => {
     this.setState({ value: e.target.value });
   };
 
+  // Add tasks to todo list
   addTodo = e => {
     e.preventDefault();
     let task = this.state.value;
+    // Refuse empty input value
     if (task.length === 0) {
       return;
     }
@@ -49,6 +54,7 @@ class App extends Component {
     });
   };
 
+  // Move Tasks from "Todo List" TO "Done List"
   endTask = index => {
     const todoList = [...this.state.todoList];
     const doneList = [...this.state.doneList];
@@ -60,6 +66,7 @@ class App extends Component {
     });
   };
 
+  // Move Tasks from "Done List" TO "Todo List"
   recoverTask = index => {
     const todoList = [...this.state.todoList];
     const doneList = [...this.state.doneList];
@@ -68,12 +75,14 @@ class App extends Component {
     this.setState({ todoList: todoList, doneList: doneList });
   };
 
+  // Delete Tasks from "Todo List"
   removeTodo = index => {
     const todoList = [...this.state.todoList];
     todoList.splice(index, 1);
     this.setState({ todoList: todoList });
   };
 
+  // Delete Tasks from "Done List"
   removeDone = index => {
     const doneList = [...this.state.doneList];
     doneList.splice(index, 1);

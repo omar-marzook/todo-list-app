@@ -5,13 +5,13 @@ class Register extends Component {
   render() {
     return (
       <section className="reg-page">
-        <div className="title">
+        <header className="title">
           <img className="todo-logo" src={logo} alt="todo list logo" />
           <div className="title-text" tabIndex="1">
             <h1>TODO LIST</h1>
             <h2>Be More Productive</h2>
           </div>
-        </div>
+        </header>
         <div className="reg-form">
           <form>
             <label>
