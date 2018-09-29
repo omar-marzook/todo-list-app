@@ -6,6 +6,7 @@
     font-family: sans-serif;
 }
 
+/***** Header Component *****/
 .header {
     height: 100px;
     padding: 10px 80px;
@@ -65,7 +66,7 @@
     margin: 5px 20px;
 }
 
-/* Main App */
+/***** Main App *****/
 
 .main {
     width: 100%;
@@ -151,7 +152,7 @@
     border: none;
 }
 
-/* Form */
+/***** Input Component *****/
 
 .popup {
     display: flex;
@@ -163,10 +164,6 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
-
-/* #popup {
-    visibility: hidden;
-} */
 
 .add-window {
     width: 300px;
@@ -232,7 +229,78 @@
     margin-left: 20px;
 }
 
-/* Responsive */
+/***** Register Component *****/
+.login-page,
+.reg-page {
+    height: 100vh;
+    background: #8bc34a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+}
+
+.login-page .title h1,
+.reg-page .title h1 {
+    font-size: 30px;
+}
+
+.login-form,
+.reg-form {
+    width: 310px;
+    background: #fff;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+
+.login-form input,
+.reg-form input {
+    border: 0;
+    background: #f1f1f1;
+    height: 40px;
+    width: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.login-submit,
+.reg-submit {
+    background: #8bc34a;
+    border: 0;
+    height: 40px;
+    width: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.login-submit span,
+.reg-submit span {
+    background: #fff;
+    color: #406124;
+    border-radius: 50%;
+    padding: 2px 7px;
+    margin-left: 20px;
+    float: right;
+}
+
+.notice {
+    text-align: center;
+    color: #a5a5a5;
+    font-size: 14px;
+}
+
+.notice .link {
+    color: #8bc34a;
+    text-decoration: none;
+}
+
+/***** Responsive Design *****/
 
 @media only screen and (max-width: 980px) {
     .item-text {
@@ -276,6 +344,14 @@
     .avatar-info h3 {
         margin: 5px;
         font-size: 14px;
+    }
+    .login-page .title h1,
+    .reg-page .title h1 {
+        font-size: 24px;
+    }
+    .login-page .todo-logo,
+    .reg-page .todo-logo {
+        height: 60px;
     }
 }
 

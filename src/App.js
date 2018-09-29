@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Header from "./Header.js";
 import Input from "./Input.js";
+import Register from "./Register.js";
+import Login from "./Login.js";
 
 class App extends Component {
   constructor(props) {
@@ -80,6 +82,8 @@ class App extends Component {
   render() {
     return (
       <div>
+      <Login />
+      <Register />
         <Input
           visibility={this.state.visibility}
           hideInput={this.hideInput}
