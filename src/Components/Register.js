@@ -24,13 +24,13 @@ class Register extends Component {
                 name="password"
                 required
               />
-              <Link to="/" className="reg-submit" type="submit">
+              <Link to="/app" className="reg-submit" type="submit">
                 Register <span>></span>
               </Link>
             </label>
             <p className="notice">
               Have an account?
-              <Link to="/login" className="link">
+              <Link to="/" className="link">
                 Login here
               </Link>
             </p>

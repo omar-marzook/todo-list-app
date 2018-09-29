@@ -94,8 +94,7 @@ class App extends Component {
     return (
       <div>
         <Route
-          exact
-          path="/"
+          path="/app"
           render={() => {
             return (
               <div>
@@ -120,7 +119,7 @@ class App extends Component {
             );
           }}
         />
-        <Route path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
         <Route path="/register" component={Register} />
       </div>
     );

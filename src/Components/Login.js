@@ -23,12 +23,12 @@ class Login extends Component {
                 name="password"
                 required
               />
-              <Link to="/" className="login-submit" type="submit">
+              <Link to="/app" className="login-submit" type="submit">
                 Login <span>></span>
               </Link>
             </label>
             <p className="notice">
-              Not registered?{" "}
+              Not registered?
               <Link to="/register" className="link">
                 Create an accout
               </Link>
