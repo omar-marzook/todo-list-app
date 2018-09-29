@@ -124,6 +124,10 @@
     padding: 10px;
 }
 
+.done-items .item-list {
+    background: #f4f4f4;
+}
+
 .done-list .item-text {
     color: #c1c1c1;
     font-style: italic;
@@ -133,6 +137,7 @@
 .item-text {
     display: inline-block;
     cursor: pointer;
+    width: 90%;
 }
 
 .del-task {
@@ -227,6 +232,71 @@
     margin-left: 20px;
 }
 
-.active {
-    visibility: visible;
+/* Responsive */
+
+@media only screen and (max-width: 980px) {
+    .item-text {
+        width: 82%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .main {
+        flex-wrap: wrap;
+        align-content: stretch;
+    }
+    .todo-list,
+    .done-list {
+        width: 100%;
+        height: 300px;
+    }
+    .done-list {
+        margin-top: 0;
+    }
+    .header {
+        height: 80px;
+        padding: 20px;
+    }
+    .todo-logo {
+        height: 45px;
+    }
+    .title-text {
+        margin: 0px 10px;
+    }
+    .title-text h1 {
+        font-size: 22px;
+    }
+    .title-text h2 {
+        font-size: 14px;
+    }
+    .avatar-img {
+        width: 45px;
+        height: 45px;
+    }
+    .avatar-info h3 {
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .header {
+        padding: 20px 10px;
+    }
+    .todo-logo {
+        height: 40px;
+    }
+    .title-text h1 {
+        font-size: 18px;
+    }
+    .title-text h2 {
+        font-size: 11px;
+    }
+    .avatar-img {
+        width: 40px;
+        height: 40px;
+    }
+    .avatar-info h3 {
+        font-size: 11px;
+    }
 }
