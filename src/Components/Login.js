@@ -15,18 +15,24 @@ class Login extends Component {
         </header>
         <div className="login-form">
           <form>
-            <label>
-              <input type="text" placeholder="Email" name="email" required />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                required
-              />
-              <Link to="/app" className="login-submit" type="submit">
-                Login <span>></span>
-              </Link>
-            </label>
+            <input type="text" placeholder="Email" name="email" required />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <Link
+              to="/app"
+              className="login-submit"
+              role="button"
+              type="submit"
+            >
+              Login
+              <span tabIndex="-1" aria-hidden="true">
+                >
+              </span>
+            </Link>
             <p className="notice">
               Not registered?
               <Link to="/register" className="link">

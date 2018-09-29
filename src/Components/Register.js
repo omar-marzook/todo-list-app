@@ -15,19 +15,20 @@ class Register extends Component {
         </header>
         <div className="reg-form">
           <form>
-            <label>
-              <input type="text" placeholder="Name" name="Name" required />
-              <input type="text" placeholder="Email" name="email" required />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                required
-              />
-              <Link to="/app" className="reg-submit" type="submit">
-                Register <span>></span>
-              </Link>
-            </label>
+            <input type="text" placeholder="Name" name="Name" required />
+            <input type="text" placeholder="Email" name="email" required />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <button className="reg-submit" role="button" type="submit">
+              Register
+              <span tabIndex="-1" aria-hidden="true">
+                >
+              </span>
+            </button>
             <p className="notice">
               Have an account?
               <Link to="/" className="link">

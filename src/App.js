@@ -51,7 +51,8 @@ class App extends Component {
     }
     this.setState({
       todoList: [...this.state.todoList, task],
-      value: ""
+      value: "",
+      visibility: "hidden"
     });
   };
 
