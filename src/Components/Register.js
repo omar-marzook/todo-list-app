@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import logo from "./../logo.svg";
 
 class Register extends Component {
@@ -23,12 +24,15 @@ class Register extends Component {
                 name="password"
                 required
               />
-              <button className="reg-submit" type="submit">
+              <Link to="/" className="reg-submit" type="submit">
                 Register <span>></span>
-              </button>
+              </Link>
             </label>
             <p className="notice">
-              Have an account? <a className="link">Login here</a>
+              Have an account?
+              <Link to="/login" className="link">
+                Login here
+              </Link>
             </p>
           </form>
         </div>

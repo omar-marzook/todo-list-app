@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./Components/Login.js";
 import Register from "./Components/Register.js";
@@ -92,25 +93,35 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Login />
-        <Register />
-        <Input
-          visibility={this.state.visibility}
-          hideInput={this.hideInput}
-          value={this.state.value}
-          addTodo={this.addTodo}
-          handleChange={this.handleChange}
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return (
+              <div>
+                <Input
+                  visibility={this.state.visibility}
+                  hideInput={this.hideInput}
+                  value={this.state.value}
+                  addTodo={this.addTodo}
+                  handleChange={this.handleChange}
+                />
+                <Header />
+                <TodoLists
+                  showInput={this.showInput}
+                  endTask={this.endTask}
+                  todoList={this.state.todoList}
+                  removeTodo={this.removeTodo}
+                  doneList={this.state.doneList}
+                  removeDone={this.removeDone}
+                  recoverTask={this.recoverTask}
+                />
+              </div>
+            );
+          }}
         />
-        <Header />
-        <TodoLists
-          showInput={this.showInput}
-          endTask={this.endTask}
-          todoList={this.state.todoList}
-          removeTodo={this.removeTodo}
-          doneList={this.state.doneList}
-          removeDone={this.removeDone}
-          recoverTask={this.recoverTask}
-        />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </div>
     );
   }
