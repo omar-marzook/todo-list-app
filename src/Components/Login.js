@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import logo from "./../logo.svg";
 
-class Register extends Component {
+class Login extends Component {
   render() {
     return (
-      <section className="reg-page">
+      <section className="login-page">
         <div className="title">
           <img className="todo-logo" src={logo} alt="todo list logo" />
           <div className="title-text" tabIndex="1">
@@ -12,10 +12,9 @@ class Register extends Component {
             <h2>Be More Productive</h2>
           </div>
         </div>
-        <div className="reg-form">
+        <div className="login-form">
           <form>
             <label>
-              <input type="text" placeholder="Name" name="Name" required />
               <input type="text" placeholder="Email" name="email" required />
               <input
                 type="password"
@@ -23,12 +22,12 @@ class Register extends Component {
                 name="password"
                 required
               />
-              <button className="reg-submit" type="submit">
-                Register <span>></span>
+              <button className="login-submit" type="submit">
+                Login <span>></span>
               </button>
             </label>
             <p className="notice">
-              Have an account? <a className="link">Login here</a>
+              Not registered? <a className="link">Create an accout</a>
             </p>
           </form>
         </div>
@@ -37,4 +36,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;

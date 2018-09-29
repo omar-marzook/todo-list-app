@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "./Header.js";
-import Input from "./Input.js";
-import Register from "./Register.js";
-import Login from "./Login.js";
+import Login from "./Components/Login.js";
+import Register from "./Components/Register.js";
+import Header from "./Components/Header.js";
+import Input from "./Components/Input.js";
+import TodoLists from "./Components/TodoLists.js";
 
 class App extends Component {
   constructor(props) {
@@ -82,8 +83,8 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Login />
-      <Register />
+        <Login />
+        <Register />
         <Input
           visibility={this.state.visibility}
           hideInput={this.hideInput}
@@ -92,90 +93,15 @@ class App extends Component {
           handleChange={this.handleChange}
         />
         <Header />
-
-        <main className="main">
-          <section className="todo-list">
-            <header className="boxes-header" >
-              <h2 tabIndex="1">TODO ITEMS</h2>
-              <button
-                className="add-btn"
-                tabIndex="2"
-                aria-label="add new task"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={() => {
-                  this.showInput();
-                }}
-              >
-                ADD
-              </button>
-            </header>
-            <ul className="todo-items">
-              {this.state.todoList.map((todo, index) => (
-                <li className="item-list" key={Date.now() * Math.random()}>
-                  <a
-                    className="item-text"
-                    tabIndex="3"
-                    aria-label="Select to consider the task done"
-                    onClick={() => {
-                      this.endTask(index);
-                    }}
-                    onKeyPress={() => {
-                      this.endTask(index);
-                    }}
-                  >
-                    {todo}
-                  </a>
-                  <button
-                    className="del-task"
-                    tabIndex="3"
-                    aria-label="delete task"
-                    onClick={() => {
-                      this.removeTodo(index);
-                    }}
-                  >
-                    X
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="done-list">
-            <header className="boxes-header" >
-              <h2 tabIndex="1">DONE ITEMS</h2>
-            </header>
-            <ul className="done-items">
-              {this.state.doneList.map((done, index) => (
-                <li className="item-list" key={Date.now() * Math.random()}>
-                  <a
-                    className="item-text"
-                    tabIndex="3"
-                    aria-label="Select to consider the task as a task"
-                    onClick={() => {
-                      this.recoverTask(index);
-                    }}
-                    onKeyPress={() => {
-                      this.recoverTask(index);
-                    }}
-                  >
-                    {done}
-                  </a>
-                  <button
-                    className="del-task"
-                    tabIndex="3"
-                    aria-label="delete finished task"
-                    onClick={() => {
-                      this.removeDone(index);
-                    }}
-                  >
-                    X
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </main>
+        <TodoLists
+          showInput={this.showInput}
+          endTask={this.endTask}
+          todoList={this.state.todoList}
+          removeTodo={this.removeTodo}
+          doneList={this.state.doneList}
+          removeDone={this.removeDone}
+          recoverTask={this.recoverTask}
+        />
       </div>
     );
   }
